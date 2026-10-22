@@ -51,19 +51,31 @@ WORKSPACE = "muhammad-syihab-bdynf"
 PROJECT = "parking-space-ipm1b"
 VERSION = 4
 
+
 def prepare_dataset():
     source_yaml = DATA_DIR / "data.yaml"
 
     if not source_yaml.exists():
         print("Downloading Roboflow dataset...")
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        DATA_DIR.parent.mkdir(parents=True, exist_ok=True)
+        if DATA_DIR.exists():
+            if any(DATA_DIR.iterdir()):
+                raise RuntimeError(
+                    f"Incomplete dataset directory: {DATA_DIR}")
+            DATA_DIR.rmdir()
 
         rf = Roboflow(api_key=load_api_key())
-        rf.workspace(WORKSPACE).project(PROJECT).version(
-            VERSION).download("yolov11", location=str(DATA_DIR))
+
+        dataset = (
+            rf.workspace(WORKSPACE)
+            .project(PROJECT)
+            .version(VERSION)
+            .download("yolov11", location=str(DATA_DIR)))
+        print(f"Dataset location: {dataset.location}")
 
     if not source_yaml.exists():
-        raise FileNotFoundError("Dataset download failed.")
+        raise FileNotFoundError(
+            f"Dataset download failed: {source_yaml}")
 
     original = yaml.safe_load(source_yaml.read_text())
 
@@ -73,7 +85,6 @@ def prepare_dataset():
         "val": "valid/images",
         "test": "test/images",
         "names": original["names"],}
-
     runtime_yaml = DATA_DIR / "training_config.yaml"
     runtime_yaml.write_text(yaml.safe_dump(config))
 
@@ -82,10 +93,8 @@ def prepare_dataset():
 def main():
     data_yaml = prepare_dataset()
     device = 0 if torch.cuda.is_available() else "cpu"
-
     print(f"Training device: {device}")
     print(f"Dataset: {data_yaml}")
-
     model = YOLO("yolo11n.pt")
 
     model.train(
@@ -105,7 +114,7 @@ def main():
     WEIGHTS_DIR.mkdir(exist_ok=True)
 
     best = Path(model.trainer.best)
-    destination = WEIGHTS_DIR / "best.pt"
+    destination = WEIGHTS_DIR/"best.pt"
 
     if not best.exists():
         raise FileNotFoundError(f"Missing weights: {best}")
