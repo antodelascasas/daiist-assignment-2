@@ -1,0 +1,2136 @@
+{
+  "assumptions": {
+    "fp_eur": 1.0,
+    "fn_eur": 5.0,
+    "review_eur": 0.5,
+    "positive_class": "occupied",
+    "daily_spots": 500,
+    "review_minutes": 1.0,
+    "review_assumed_accurate": true,
+    "matching_iou_threshold": 0.5,
+    "observed_base_rate": 0.696975,
+    "note": "Offline GT-box anchors; GT class never used for prediction. Deployment requires fixed space coordinates.",
+    "model_only_policy": "empty prediction >= threshold => PASS, everything else => FAIL (conservative)",
+    "hybrid_policy": "empty confidence >= empty threshold => PASS; occupied confidence >= occupied threshold => FAIL; everything else => REVIEW",
+    "extra_unmatched_predictions": "Reported separately, uncosted; may include hallucinated spaces or incomplete labels"
+  },
+  "gt_space_count": 11735,
+  "no_detection_at_conf_0_001": 27,
+  "model_only_optimum": {
+    "confidence_threshold_empty": 0.01,
+    "cost_per_1000_eur": 8.8624,
+    "review_share": 0.0,
+    "fp": 39,
+    "fn": 13,
+    "review_count": 0,
+    "cm_actual_empty_occupied_vs_pass_review_fail": [
+      [
+        3517,
+        0,
+        39
+      ],
+      [
+        13,
+        0,
+        8166
+      ]
+    ]
+  },
+  "hybrid_optimum": {
+    "empty_conf_threshold": 0.01,
+    "occupied_conf_threshold": 0.01,
+    "signed_conf_low": -0.01,
+    "signed_conf_high": 0.01,
+    "cost_per_1000_eur": 8.0528,
+    "review_share": 0.003153,
+    "fp": 11,
+    "fn": 13,
+    "review_count": 37,
+    "cm_actual_empty_occupied_vs_pass_review_fail": [
+      [
+        3517,
+        28,
+        11
+      ],
+      [
+        13,
+        9,
+        8157
+      ]
+    ]
+  },
+  "unmatched_hybrid": {
+    "unmatched_empty_predictions": 3339,
+    "unmatched_occupied_predictions": 3852
+  },
+  "comparison_eur_per_1000": {
+    "blind_assume_all_empty": 3484.8743,
+    "blind_assume_all_occupied": 303.0251,
+    "human_review_all": 500.0,
+    "model_only": 8.8624,
+    "hybrid": 8.0528
+  },
+  "staffing": {
+    "daily_spots": 500,
+    "reviews_per_day": 1.577,
+    "labor_hours_per_day": 0.0263,
+    "fte": 0.00469,
+    "review_minutes_per_case": 1.0
+  },
+  "sensitivity": [
+    {
+      "base_rate": 0.5,
+      "fn_eur": 2.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 5.3797,
+      "review_share": 0.004487
+    },
+    {
+      "base_rate": 0.5,
+      "fn_eur": 5.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 7.7639,
+      "review_share": 0.004487
+    },
+    {
+      "base_rate": 0.5,
+      "fn_eur": 10.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 11.7375,
+      "review_share": 0.004487
+    },
+    {
+      "base_rate": 0.696975,
+      "fn_eur": 2.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 4.7294,
+      "review_share": 0.003153
+    },
+    {
+      "base_rate": 0.696975,
+      "fn_eur": 5.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 8.0528,
+      "review_share": 0.003153
+    },
+    {
+      "base_rate": 0.696975,
+      "fn_eur": 10.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 13.5918,
+      "review_share": 0.003153
+    },
+    {
+      "base_rate": 0.9,
+      "fn_eur": 2.0,
+      "empty_conf_threshold": 0.01,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 4.0592,
+      "review_share": 0.001778
+    },
+    {
+      "base_rate": 0.9,
+      "fn_eur": 5.0,
+      "empty_conf_threshold": 0.44,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 6.9594,
+      "review_share": 0.008899
+    },
+    {
+      "base_rate": 0.9,
+      "fn_eur": 10.0,
+      "empty_conf_threshold": 0.56,
+      "occupied_conf_threshold": 0.01,
+      "cost_per_1000_eur": 8.8692,
+      "review_share": 0.012718
+    }
+  ],
+  "model_only_confidence_sweep": [
+    {
+      "confidence_threshold_empty": 0.01,
+      "cost_per_1000_eur": 8.8624,
+      "review_share": 0.0,
+      "fp": 39,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3517,
+          0,
+          39
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.02,
+      "cost_per_1000_eur": 9.6293,
+      "review_share": 0.0,
+      "fp": 48,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3508,
+          0,
+          48
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.03,
+      "cost_per_1000_eur": 9.7145,
+      "review_share": 0.0,
+      "fp": 49,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3507,
+          0,
+          49
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.04,
+      "cost_per_1000_eur": 10.1406,
+      "review_share": 0.0,
+      "fp": 54,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3502,
+          0,
+          54
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.05,
+      "cost_per_1000_eur": 10.4815,
+      "review_share": 0.0,
+      "fp": 58,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3498,
+          0,
+          58
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.06,
+      "cost_per_1000_eur": 10.8223,
+      "review_share": 0.0,
+      "fp": 62,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3494,
+          0,
+          62
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.07,
+      "cost_per_1000_eur": 10.9075,
+      "review_share": 0.0,
+      "fp": 63,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3493,
+          0,
+          63
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.08,
+      "cost_per_1000_eur": 11.2484,
+      "review_share": 0.0,
+      "fp": 67,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3489,
+          0,
+          67
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.09,
+      "cost_per_1000_eur": 11.3336,
+      "review_share": 0.0,
+      "fp": 68,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3488,
+          0,
+          68
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.1,
+      "cost_per_1000_eur": 11.504,
+      "review_share": 0.0,
+      "fp": 70,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3486,
+          0,
+          70
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.11,
+      "cost_per_1000_eur": 11.5893,
+      "review_share": 0.0,
+      "fp": 71,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3485,
+          0,
+          71
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.12,
+      "cost_per_1000_eur": 11.5893,
+      "review_share": 0.0,
+      "fp": 71,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3485,
+          0,
+          71
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.13,
+      "cost_per_1000_eur": 11.7597,
+      "review_share": 0.0,
+      "fp": 73,
+      "fn": 13,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3483,
+          0,
+          73
+        ],
+        [
+          13,
+          0,
+          8166
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.14,
+      "cost_per_1000_eur": 11.5893,
+      "review_share": 0.0,
+      "fp": 76,
+      "fn": 12,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3480,
+          0,
+          76
+        ],
+        [
+          12,
+          0,
+          8167
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.15,
+      "cost_per_1000_eur": 11.2484,
+      "review_share": 0.0,
+      "fp": 77,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3479,
+          0,
+          77
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.16,
+      "cost_per_1000_eur": 11.7597,
+      "review_share": 0.0,
+      "fp": 83,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3473,
+          0,
+          83
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.17,
+      "cost_per_1000_eur": 12.0153,
+      "review_share": 0.0,
+      "fp": 86,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3470,
+          0,
+          86
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.18,
+      "cost_per_1000_eur": 12.3562,
+      "review_share": 0.0,
+      "fp": 90,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3466,
+          0,
+          90
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.19,
+      "cost_per_1000_eur": 12.9527,
+      "review_share": 0.0,
+      "fp": 97,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3459,
+          0,
+          97
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.2,
+      "cost_per_1000_eur": 13.0379,
+      "review_share": 0.0,
+      "fp": 98,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3458,
+          0,
+          98
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.21,
+      "cost_per_1000_eur": 13.3788,
+      "review_share": 0.0,
+      "fp": 102,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3454,
+          0,
+          102
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.22,
+      "cost_per_1000_eur": 13.5492,
+      "review_share": 0.0,
+      "fp": 104,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3452,
+          0,
+          104
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.23,
+      "cost_per_1000_eur": 13.9753,
+      "review_share": 0.0,
+      "fp": 109,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3447,
+          0,
+          109
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.24,
+      "cost_per_1000_eur": 14.2309,
+      "review_share": 0.0,
+      "fp": 112,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3444,
+          0,
+          112
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.25,
+      "cost_per_1000_eur": 14.3161,
+      "review_share": 0.0,
+      "fp": 113,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3443,
+          0,
+          113
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.26,
+      "cost_per_1000_eur": 14.7422,
+      "review_share": 0.0,
+      "fp": 118,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3438,
+          0,
+          118
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.27,
+      "cost_per_1000_eur": 15.1683,
+      "review_share": 0.0,
+      "fp": 123,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3433,
+          0,
+          123
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.28,
+      "cost_per_1000_eur": 15.7648,
+      "review_share": 0.0,
+      "fp": 130,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3426,
+          0,
+          130
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.29,
+      "cost_per_1000_eur": 16.1909,
+      "review_share": 0.0,
+      "fp": 135,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3421,
+          0,
+          135
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.3,
+      "cost_per_1000_eur": 16.5317,
+      "review_share": 0.0,
+      "fp": 139,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3417,
+          0,
+          139
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.31,
+      "cost_per_1000_eur": 16.8726,
+      "review_share": 0.0,
+      "fp": 143,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3413,
+          0,
+          143
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.32,
+      "cost_per_1000_eur": 17.4691,
+      "review_share": 0.0,
+      "fp": 150,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3406,
+          0,
+          150
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.33,
+      "cost_per_1000_eur": 18.0656,
+      "review_share": 0.0,
+      "fp": 157,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3399,
+          0,
+          157
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.34,
+      "cost_per_1000_eur": 18.7473,
+      "review_share": 0.0,
+      "fp": 165,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3391,
+          0,
+          165
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.35,
+      "cost_per_1000_eur": 18.9178,
+      "review_share": 0.0,
+      "fp": 167,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3389,
+          0,
+          167
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.36,
+      "cost_per_1000_eur": 19.7699,
+      "review_share": 0.0,
+      "fp": 177,
+      "fn": 11,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3379,
+          0,
+          177
+        ],
+        [
+          11,
+          0,
+          8168
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.37,
+      "cost_per_1000_eur": 20.0256,
+      "review_share": 0.0,
+      "fp": 185,
+      "fn": 10,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3371,
+          0,
+          185
+        ],
+        [
+          10,
+          0,
+          8169
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.38,
+      "cost_per_1000_eur": 20.5369,
+      "review_share": 0.0,
+      "fp": 196,
+      "fn": 9,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3360,
+          0,
+          196
+        ],
+        [
+          9,
+          0,
+          8170
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.39,
+      "cost_per_1000_eur": 21.6447,
+      "review_share": 0.0,
+      "fp": 209,
+      "fn": 9,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3347,
+          0,
+          209
+        ],
+        [
+          9,
+          0,
+          8170
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.4,
+      "cost_per_1000_eur": 21.8151,
+      "review_share": 0.0,
+      "fp": 216,
+      "fn": 8,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3340,
+          0,
+          216
+        ],
+        [
+          8,
+          0,
+          8171
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.41,
+      "cost_per_1000_eur": 21.389,
+      "review_share": 0.0,
+      "fp": 226,
+      "fn": 5,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3330,
+          0,
+          226
+        ],
+        [
+          5,
+          0,
+          8174
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.42,
+      "cost_per_1000_eur": 22.7524,
+      "review_share": 0.0,
+      "fp": 242,
+      "fn": 5,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3314,
+          0,
+          242
+        ],
+        [
+          5,
+          0,
+          8174
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.43,
+      "cost_per_1000_eur": 23.2637,
+      "review_share": 0.0,
+      "fp": 248,
+      "fn": 5,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3308,
+          0,
+          248
+        ],
+        [
+          5,
+          0,
+          8174
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.44,
+      "cost_per_1000_eur": 23.6046,
+      "review_share": 0.0,
+      "fp": 257,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3299,
+          0,
+          257
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.45,
+      "cost_per_1000_eur": 24.4568,
+      "review_share": 0.0,
+      "fp": 267,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3289,
+          0,
+          267
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.46,
+      "cost_per_1000_eur": 25.0533,
+      "review_share": 0.0,
+      "fp": 274,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3282,
+          0,
+          274
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.47,
+      "cost_per_1000_eur": 26.3315,
+      "review_share": 0.0,
+      "fp": 289,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3267,
+          0,
+          289
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.48,
+      "cost_per_1000_eur": 27.1836,
+      "review_share": 0.0,
+      "fp": 299,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3257,
+          0,
+          299
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.49,
+      "cost_per_1000_eur": 27.8654,
+      "review_share": 0.0,
+      "fp": 307,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3249,
+          0,
+          307
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.5,
+      "cost_per_1000_eur": 28.7175,
+      "review_share": 0.0,
+      "fp": 317,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3239,
+          0,
+          317
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.51,
+      "cost_per_1000_eur": 29.9105,
+      "review_share": 0.0,
+      "fp": 331,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3225,
+          0,
+          331
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.52,
+      "cost_per_1000_eur": 30.7627,
+      "review_share": 0.0,
+      "fp": 341,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3215,
+          0,
+          341
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.53,
+      "cost_per_1000_eur": 31.8705,
+      "review_share": 0.0,
+      "fp": 354,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3202,
+          0,
+          354
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.54,
+      "cost_per_1000_eur": 32.8931,
+      "review_share": 0.0,
+      "fp": 366,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3190,
+          0,
+          366
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.55,
+      "cost_per_1000_eur": 33.8304,
+      "review_share": 0.0,
+      "fp": 377,
+      "fn": 4,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3179,
+          0,
+          377
+        ],
+        [
+          4,
+          0,
+          8175
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.56,
+      "cost_per_1000_eur": 33.66,
+      "review_share": 0.0,
+      "fp": 385,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3171,
+          0,
+          385
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.57,
+      "cost_per_1000_eur": 35.0234,
+      "review_share": 0.0,
+      "fp": 401,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3155,
+          0,
+          401
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.58,
+      "cost_per_1000_eur": 35.7904,
+      "review_share": 0.0,
+      "fp": 410,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3146,
+          0,
+          410
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.59,
+      "cost_per_1000_eur": 37.239,
+      "review_share": 0.0,
+      "fp": 427,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3129,
+          0,
+          427
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.6,
+      "cost_per_1000_eur": 38.5173,
+      "review_share": 0.0,
+      "fp": 442,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3114,
+          0,
+          442
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.61,
+      "cost_per_1000_eur": 40.0511,
+      "review_share": 0.0,
+      "fp": 460,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3096,
+          0,
+          460
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.62,
+      "cost_per_1000_eur": 42.5224,
+      "review_share": 0.0,
+      "fp": 489,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3067,
+          0,
+          489
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.63,
+      "cost_per_1000_eur": 43.2893,
+      "review_share": 0.0,
+      "fp": 498,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3058,
+          0,
+          498
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.64,
+      "cost_per_1000_eur": 44.738,
+      "review_share": 0.0,
+      "fp": 515,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3041,
+          0,
+          515
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.65,
+      "cost_per_1000_eur": 45.5901,
+      "review_share": 0.0,
+      "fp": 525,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3031,
+          0,
+          525
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.66,
+      "cost_per_1000_eur": 47.8909,
+      "review_share": 0.0,
+      "fp": 552,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          3004,
+          0,
+          552
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.67,
+      "cost_per_1000_eur": 49.5952,
+      "review_share": 0.0,
+      "fp": 572,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2984,
+          0,
+          572
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.68,
+      "cost_per_1000_eur": 51.3847,
+      "review_share": 0.0,
+      "fp": 593,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2963,
+          0,
+          593
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.69,
+      "cost_per_1000_eur": 54.0264,
+      "review_share": 0.0,
+      "fp": 624,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2932,
+          0,
+          624
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.7,
+      "cost_per_1000_eur": 57.0089,
+      "review_share": 0.0,
+      "fp": 659,
+      "fn": 2,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2897,
+          0,
+          659
+        ],
+        [
+          2,
+          0,
+          8177
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.71,
+      "cost_per_1000_eur": 59.7358,
+      "review_share": 0.0,
+      "fp": 696,
+      "fn": 1,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2860,
+          0,
+          696
+        ],
+        [
+          1,
+          0,
+          8178
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.72,
+      "cost_per_1000_eur": 62.6331,
+      "review_share": 0.0,
+      "fp": 730,
+      "fn": 1,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2826,
+          0,
+          730
+        ],
+        [
+          1,
+          0,
+          8178
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.73,
+      "cost_per_1000_eur": 65.2748,
+      "review_share": 0.0,
+      "fp": 761,
+      "fn": 1,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2795,
+          0,
+          761
+        ],
+        [
+          1,
+          0,
+          8178
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.74,
+      "cost_per_1000_eur": 68.2573,
+      "review_share": 0.0,
+      "fp": 801,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2755,
+          0,
+          801
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.75,
+      "cost_per_1000_eur": 73.3703,
+      "review_share": 0.0,
+      "fp": 861,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2695,
+          0,
+          861
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.76,
+      "cost_per_1000_eur": 77.8867,
+      "review_share": 0.0,
+      "fp": 914,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2642,
+          0,
+          914
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.77,
+      "cost_per_1000_eur": 82.5735,
+      "review_share": 0.0,
+      "fp": 969,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2587,
+          0,
+          969
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.78,
+      "cost_per_1000_eur": 89.3055,
+      "review_share": 0.0,
+      "fp": 1048,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2508,
+          0,
+          1048
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.79,
+      "cost_per_1000_eur": 96.3784,
+      "review_share": 0.0,
+      "fp": 1131,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2425,
+          0,
+          1131
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.8,
+      "cost_per_1000_eur": 102.2582,
+      "review_share": 0.0,
+      "fp": 1200,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2356,
+          0,
+          1200
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.81,
+      "cost_per_1000_eur": 108.3937,
+      "review_share": 0.0,
+      "fp": 1272,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2284,
+          0,
+          1272
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.82,
+      "cost_per_1000_eur": 116.4891,
+      "review_share": 0.0,
+      "fp": 1367,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2189,
+          0,
+          1367
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.83,
+      "cost_per_1000_eur": 123.6472,
+      "review_share": 0.0,
+      "fp": 1451,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2105,
+          0,
+          1451
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.84,
+      "cost_per_1000_eur": 130.1236,
+      "review_share": 0.0,
+      "fp": 1527,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          2029,
+          0,
+          1527
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.85,
+      "cost_per_1000_eur": 136.3443,
+      "review_share": 0.0,
+      "fp": 1600,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1956,
+          0,
+          1600
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.86,
+      "cost_per_1000_eur": 142.0537,
+      "review_share": 0.0,
+      "fp": 1667,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1889,
+          0,
+          1667
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.87,
+      "cost_per_1000_eur": 150.2343,
+      "review_share": 0.0,
+      "fp": 1763,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1793,
+          0,
+          1763
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.88,
+      "cost_per_1000_eur": 157.7333,
+      "review_share": 0.0,
+      "fp": 1851,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1705,
+          0,
+          1851
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.89,
+      "cost_per_1000_eur": 163.4427,
+      "review_share": 0.0,
+      "fp": 1918,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1638,
+          0,
+          1918
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.9,
+      "cost_per_1000_eur": 165.4879,
+      "review_share": 0.0,
+      "fp": 1942,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1614,
+          0,
+          1942
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.91,
+      "cost_per_1000_eur": 166.5957,
+      "review_share": 0.0,
+      "fp": 1955,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1601,
+          0,
+          1955
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.92,
+      "cost_per_1000_eur": 166.9365,
+      "review_share": 0.0,
+      "fp": 1959,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1597,
+          0,
+          1959
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.93,
+      "cost_per_1000_eur": 167.533,
+      "review_share": 0.0,
+      "fp": 1966,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1590,
+          0,
+          1966
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.94,
+      "cost_per_1000_eur": 168.2147,
+      "review_share": 0.0,
+      "fp": 1974,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1582,
+          0,
+          1974
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.95,
+      "cost_per_1000_eur": 169.493,
+      "review_share": 0.0,
+      "fp": 1989,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1567,
+          0,
+          1989
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.96,
+      "cost_per_1000_eur": 181.5935,
+      "review_share": 0.0,
+      "fp": 2131,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          1425,
+          0,
+          2131
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.97,
+      "cost_per_1000_eur": 290.1576,
+      "review_share": 0.0,
+      "fp": 3405,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          151,
+          0,
+          3405
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.98,
+      "cost_per_1000_eur": 303.0251,
+      "review_share": 0.0,
+      "fp": 3556,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          0,
+          0,
+          3556
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    },
+    {
+      "confidence_threshold_empty": 0.99,
+      "cost_per_1000_eur": 303.0251,
+      "review_share": 0.0,
+      "fp": 3556,
+      "fn": 0,
+      "review_count": 0,
+      "cm_actual_empty_occupied_vs_pass_review_fail": [
+        [
+          0,
+          0,
+          3556
+        ],
+        [
+          0,
+          0,
+          8179
+        ]
+      ]
+    }
+  ]
+}
