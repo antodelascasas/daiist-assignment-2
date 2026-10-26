@@ -1,0 +1,140 @@
+{
+  "split": "test",
+  "images_evaluated": 208,
+  "iou_match": 0.5,
+  "score_cutoff_for_confusion": 0.25,
+  "mapping_coco_to_parking": {
+    "car": "occupied",
+    "bus": "occupied",
+    "truck": "occupied",
+    "empty": "not available"
+  },
+  "results": {
+    "trained": {
+      "map50": 0.971911,
+      "map50_95": 0.848726,
+      "per_class": {
+        "empty": {
+          "precision_at_0.25_iou50": 0.872174,
+          "recall_at_0.25_iou50": 0.957447,
+          "ap50": 0.961936,
+          "map50_95": 0.801007,
+          "ground_truth_instances": 1974
+        },
+        "occupied": {
+          "precision_at_0.25_iou50": 0.854298,
+          "recall_at_0.25_iou50": 0.993579,
+          "ap50": 0.981885,
+          "map50_95": 0.896445,
+          "ground_truth_instances": 4361
+        }
+      },
+      "confusion_at_0.25_iou50": [
+        [
+          1872,
+          75,
+          27
+        ],
+        [
+          11,
+          4329,
+          21
+        ],
+        [
+          284,
+          668,
+          0
+        ]
+      ],
+      "confusion_labels": [
+        "empty",
+        "occupied",
+        "background"
+      ]
+    },
+    "coco": {
+      "map50": 0.237313,
+      "map50_95": 0.052693,
+      "per_class": {
+        "empty": {
+          "precision_at_0.25_iou50": 0.0,
+          "recall_at_0.25_iou50": 0.0,
+          "ap50": 0.0,
+          "map50_95": 0.0,
+          "ground_truth_instances": 1974
+        },
+        "occupied": {
+          "precision_at_0.25_iou50": 0.68254,
+          "recall_at_0.25_iou50": 0.384545,
+          "ap50": 0.474625,
+          "map50_95": 0.105386,
+          "ground_truth_instances": 4361
+        }
+      },
+      "confusion_at_0.25_iou50": [
+        [
+          0,
+          0,
+          1974
+        ],
+        [
+          0,
+          1677,
+          2684
+        ],
+        [
+          0,
+          780,
+          0
+        ]
+      ],
+      "confusion_labels": [
+        "empty",
+        "occupied",
+        "background"
+      ]
+    },
+    "none": {
+      "map50": 0.0,
+      "map50_95": 0.0,
+      "per_class": {
+        "empty": {
+          "precision_at_0.25_iou50": 0.0,
+          "recall_at_0.25_iou50": 0.0,
+          "ap50": 0.0,
+          "map50_95": 0.0,
+          "ground_truth_instances": 1974
+        },
+        "occupied": {
+          "precision_at_0.25_iou50": 0.0,
+          "recall_at_0.25_iou50": 0.0,
+          "ap50": 0.0,
+          "map50_95": 0.0,
+          "ground_truth_instances": 4361
+        }
+      },
+      "confusion_at_0.25_iou50": [
+        [
+          0,
+          0,
+          1974
+        ],
+        [
+          0,
+          0,
+          4361
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "confusion_labels": [
+        "empty",
+        "occupied",
+        "background"
+      ]
+    }
+  }
+}
