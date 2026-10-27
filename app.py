@@ -32,7 +32,7 @@ def read_json(path):
 
 
 SAMPLES = read_json(SOURCE)
-VALIDATION = read_json(RESULTS / "parking_metrics_valid.json")
+TEST = read_json(RESULTS / "parking_metrics_test.json")
 COSTS = read_json(RESULTS / "parking_costs_valid.json")
 TRUTH, PRED_CLASS, CONF, EXTRAS = build_cases(SAMPLES)
 if not WEIGHTS.is_file():
@@ -45,8 +45,8 @@ MODEL_ONLY = float(COSTS["model_only_optimum"]["confidence_threshold_empty"])
 
 BASELINES_DF = pd.DataFrame([
     {"Model": label,
-     "mAP50 (%)": round(100 * VALIDATION["results"][key]["map50"], 2),
-     "mAP50–95 (%)": round(100 * VALIDATION["results"][key]["map50_95"], 2)}
+     "mAP50 (%)": round(100 * TEST["results"][key]["map50"], 2),
+     "mAP50–95 (%)": round(100 * TEST["results"][key]["map50_95"], 2)}
     for key, label in (("trained", "Fine-tuned YOLO11n"),
                        ("coco", "COCO zero-shot (vehicle proxy)"),
                        ("none", "Predict nothing"))
@@ -58,7 +58,7 @@ CLASS_DF = pd.DataFrame([
      "AP50 (%)": round(100 * item["ap50"], 2),
      "mAP50–95 (%)": round(100 * item["map50_95"], 2),
      "Ground-truth objects": item["ground_truth_instances"]}
-    for name, item in VALIDATION["results"]["trained"]["per_class"].items()
+    for name, item in TEST["results"]["trained"]["per_class"].items()
 ])
 
 CSS = """
@@ -302,7 +302,7 @@ with gr.Blocks(title="Parking Operations · YOLO11n", **BLOCKS_STYLE) as demo:
             )
 
         with gr.Tab("Model evaluation"):
-            gr.Markdown("### Model comparison · 525 usable validation images")
+            gr.Markdown("### Model comparison · 208 usable test images")
             gr.Dataframe(BASELINES_DF, interactive=False)
             gr.Markdown("### Results by class · fine-tuned YOLO11n")
             gr.Dataframe(CLASS_DF, interactive=False)
