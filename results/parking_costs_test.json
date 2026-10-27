@@ -1,0 +1,53 @@
+{
+  "split": "test",
+  "thresholds_selected_on": "validation (fixed before test evaluation)",
+  "annotated_spaces": 6335,
+  "thresholds": {
+    "model_only_empty": 0.01,
+    "hybrid_empty": 0.01,
+    "hybrid_occupied": 0.01
+  },
+  "model_only": {
+    "cost_per_1000_eur": 21.3102,
+    "review_share": 0.0,
+    "fp": 80,
+    "fn": 11,
+    "review_count": 0,
+    "cm_actual_empty_occupied_vs_pass_review_fail": [
+      [
+        1894,
+        0,
+        80
+      ],
+      [
+        11,
+        0,
+        4350
+      ]
+    ]
+  },
+  "hybrid": {
+    "cost_per_1000_eur": 21.7837,
+    "review_share": 0.001579,
+    "fp": 78,
+    "fn": 11,
+    "review_count": 10,
+    "cm_actual_empty_occupied_vs_pass_review_fail": [
+      [
+        1894,
+        2,
+        78
+      ],
+      [
+        11,
+        8,
+        4342
+      ]
+    ]
+  },
+  "extra_detections_not_costed": {
+    "unmatched_empty_predictions": 1548,
+    "unmatched_occupied_predictions": 2175
+  },
+  "limitations": "Offline matching uses annotated parking-space locations. Human review is simulated, and unmatched detections are not costed."
+}
